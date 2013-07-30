@@ -361,6 +361,12 @@ using namespace System::Reflection%3B
                       Lines="@(TXTLines)"/>
   </Target>
 
+  <!-- Lets make sure the shared directory gets created if it's not already.-->
+  <Target Name="CreateSharedOutputDirectory"
+          Condition="!(Exists($(SharedVersionOutputDirectory)))">
+    <MakeDir Directories="$(SharedVersionOutputDirectory)"/>
+  </Target>
+
   <!-- ******************************************************************** -->
   <!-- The important targets that get the version file writing hooked into
        the MSBUILD system. Feel free to add additional VS project types here 
@@ -371,6 +377,7 @@ using namespace System::Reflection%3B
        so it's automatically created. -->
   <PropertyGroup>
     <FileTargetsList>
+      CreateSharedOutputDirectory;
       WriteSharedTextAssemblyVersionFile;
       WriteSharedCSharpAssemblyVersionFile;
       WriteSharedCPPAssemblyVersionFile;
