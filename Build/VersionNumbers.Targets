@@ -1,0 +1,26 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <!-- The following two properties are mandatory with 
+         Wintellect.TFSBuildNumber.targets-->
+    <TFSMajorBuildNumber>6</TFSMajorBuildNumber>
+    <TFSMinorBuildNumber>1</TFSMinorBuildNumber>
+
+    <!-- This is optional. The default location is assumed to be the current
+         directory for writing the files. You should probably put them all
+         in a shared directory across all projects so everyone is using a 
+         single master copy of the files. -->
+    <SharedVersionOutputDirectory>..\Shared</SharedVersionOutputDirectory>
+
+    <!-- This is optional. Set to true if you want to force creation of
+         the version number files on developer builds. In TFS hosted and 
+         on premises builds, the first execution of the tasks will create the
+         files. As you don't have the files checked in that's no problem and
+         ensures these files are not recreated over and over again.-->
+    <TFSBuildNumberFilesForceCreate>true</TFSBuildNumberFilesForceCreate>
+  </PropertyGroup>
+
+  <!-- Include the targets that create the version number files. -->
+  <Import Project="Wintellect.TFSBuildNumber.targets" />
+
+</Project>
