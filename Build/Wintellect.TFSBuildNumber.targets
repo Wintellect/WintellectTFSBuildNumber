@@ -80,8 +80,8 @@
 
   <PropertyGroup>
     <!-- Figure out where the TFS build tasks are. -->
-    <TeamBuildRefPath Condition="'$(TeamBuildRefPath)' == ''">$(VS110COMNTOOLS)..\IDE\PrivateAssemblies\</TeamBuildRefPath>
-    <TeamBuildRefPath Condition="'$(TeamBuildRefPath)' == ''">$(VS120COMNTOOLS)..\IDE\PrivateAssemblies\</TeamBuildRefPath>
+    <TeamBuildRefPath Condition="'$(TeamBuildRefPath)' == '' and '$(VS120COMNTOOLS' != ''">$(VS120COMNTOOLS)..\IDE\PrivateAssemblies\</TeamBuildRefPath>
+    <TeamBuildRefPath Condition="'$(TeamBuildRefPath)' == '' and '$(VS110COMNTOOLS' != ''">$(VS110COMNTOOLS)..\IDE\PrivateAssemblies\</TeamBuildRefPath>
   </PropertyGroup>
 
   <!-- Set appropriate defaults for all version files. -->
