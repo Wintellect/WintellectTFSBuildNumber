@@ -186,7 +186,7 @@
     </PropertyGroup>
 
     <!-- The calculations when run on a TFS On Premises or Hosted Build Server.-->
-    <PropertyGroup Condition=" '$(WintellectBuildType)'=='TFSONPREMBUILD' or '$(WintellectBuildType)' == 'TFSHOSTEDBUILD' ">
+    <PropertyGroup Condition=" '$(TFSBuildRevision)' == '' and '$(TFSBuildYear)' == '' and '$(TFSBuildMonth)' == '' and '$(TFSBuildDay)' == '' and ('$(WintellectBuildType)'=='TFSONPREMBUILD' or '$(WintellectBuildType)' == 'TFSHOSTEDBUILD') ">
       <!-- Get where the timestamp starts-->
       <tmpStartPosition>$([MSBuild]::Add($(BuildDefinitionName.Length), $(BuildDefSeparatorValue.Length)))</tmpStartPosition>
       <!-- Get the date and version portion. ex: 20091107.14-->
@@ -219,7 +219,7 @@
       <!-- That's what it looks like DevDiv is using for their calculations. -->
       <TFSCalculatedYear>$([MSBuild]::Modulo($([MSBuild]::Subtract($(TFSBuildYear),2001)),6))</TFSCalculatedYear>
 
-      <TFSBuildNumber>$(TFSCalculatedYear)$(TFSBuildMonth)$(TFSBuildDay)</TFSBuildNumber>
+      <TFSBuildNumber Condition="'$(TFSBuildNumber)' == ''">$(TFSCalculatedYear)$(TFSBuildMonth)$(TFSBuildDay)</TFSBuildNumber>
 
       <TFSFullBuildVersionString>$(TFSMajorBuildNumber).$(TFSMinorBuildNumber).$(TFSBuildNumber).$(TFSBuildRevision)</TFSFullBuildVersionString>
     </PropertyGroup>
