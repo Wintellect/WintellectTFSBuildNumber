@@ -1,0 +1,41 @@
+
+#ifndef APSTUDIO_INVOKED
+
+#include "SharedAssemblyFileVersion.h"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION rcMajor,rcMinor,rcBuild,rcRevision
+ PRODUCTVERSION rcMajor,rcMinor,rcBuild,rcRevision
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "Comment", "De Oppresso Liber"
+            VALUE "CompanyName", "Wintellect"
+            VALUE "ProductName", "TFS Build Number"
+            VALUE "FileDescription", szFileDescription
+            VALUE "FileVersion", szMajorMinorBuildRevision
+            VALUE "InternalName" , szInternalName
+            VALUE "LegalCopyright", "Copyright (c) 2015 by John Robbins/Wintellect"
+            VALUE "OriginalFilename", szOriginalFileName
+            VALUE "ProductVersion", szMajorMinorBuildRevision
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif
+
