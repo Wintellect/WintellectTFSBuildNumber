@@ -212,3 +212,13 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#####
+# Added by John 
+#####
+# The version files. Never allow those to be checked in.
+SharedAssemblyFileVersion.cs
+SharedAssemblyFileVersion.h
+SharedAssemblyFileVersion.txt
+SharedAssemblyFileVersion.vb
+SharedAssemblyFileVersion.wxi
