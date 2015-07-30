@@ -51,8 +51,8 @@
             to always create the file specify the 
             TFSBuildNumberFilesForceCreate property and set it to true.
           - The build number will be based of the current date.
-          - The revision number is hard coded to 65535 to indicate it was a 
-            developer build. (If you are doing more than 65,535 builds in a 
+          - The revision number is hard coded to 65534 to indicate it was a 
+            developer build. (If you are doing more than 65,534 builds in a 
             day you have bigger problems than version files! :) )
        -->
   
@@ -211,7 +211,7 @@
 
     <!-- For local builds from a developer, just grab the current date.-->
     <PropertyGroup Condition="'$(WintellectBuildType)'=='DEVELOPERBUILD'">
-      <TFSBuildRevision>65535</TFSBuildRevision>
+      <TFSBuildRevision>65534</TFSBuildRevision>
       <TFSBuildYear>$([System.DateTime]::Now.Year.ToString("0000"))</TFSBuildYear>
       <TFSBuildMonth>$([System.DateTime]::Now.Month.ToString("00"))</TFSBuildMonth>
       <TFSBuildDay>$([System.DateTime]::Now.Day.ToString("00"))</TFSBuildDay>
