@@ -74,7 +74,7 @@
     <!-- For a TFS Hosted build, I'll look to see if the domain and user 
          account have the special domain and user account. Obviously, if 
          Microsoft changes the accounts, this will break. -->
-    <WintellectBuildType Condition=" '$(BuildLabel)' != '' and '$(USERNAME)' == 'buildguest' and '$(USERDOMAIN.StartsWith(`BUILD-`))' == 'true' ">TFSHOSTEDBUILD</WintellectBuildType>
+    <WintellectBuildType Condition=" '$(BuildLabel)' != '' and '$(USERNAME)' == 'buildguest' and '$(USERDOMAIN.StartsWith(`BUILD`))' == 'true' ">TFSHOSTEDBUILD</WintellectBuildType>
     <!-- If it's not TFS Hosted, try an on premises build machine. -->
     <WintellectBuildType Condition=" '$(BuildUri)'!='' and '$(TeamFoundationServerUrl)'!='' and '$(WintellectBuildType)' == '' ">TFSONPREMBUILD</WintellectBuildType>
     <!-- Default to a developer build. -->
